@@ -1,7 +1,7 @@
-{{ project_name|title }}
+GeoNode Template
 ========================
 
-You should write some docs, it's good for the soul.
+Custom template for GeoNode 2.0
 
 Installation
 ------------
