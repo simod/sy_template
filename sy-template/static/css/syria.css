@@ -1,0 +1,149 @@
+/* ------ fonts
+--------------------------------- */
+/* ------ body
+--------------------------------- */
+body {
+  background: #efefef;
+  padding-top: 45px;
+}
+/* ------ layout
+--------------------------------- */
+section.social {
+  border-bottom: 1px solid #cccccc;
+}
+section.social p {
+  color: #444;
+  padding: 10px 10px 0;
+  text-align: right;
+}
+section.social .count {
+  font-size: 24px;
+  margin-left: 5px;
+  vertical-align: text-top;
+}
+section.social .span2 {
+  border-right: 1px solid #cccccc;
+  margin-right: -1px;
+}
+section.social .span4 {
+  font-size: 28px;
+}
+section.social .span4 i {
+  margin-left: 5px;
+}
+/* ------ general styles
+--------------------------------- */
+.nav-logo {
+  background: url(/static/img/logo.png) no-repeat;
+}
+.navbar .navbar-inner {
+  background: #000;
+}
+.nav-box {
+  background: #666;
+}
+nav.main-nav {
+  margin: 4px 0 2px;
+  overflow: hidden;
+}
+nav.main-nav ul {
+  margin-left: 0;
+}
+nav.main-nav ul li {
+  list-style-type: none;
+}
+nav.main-nav ul li.current a {
+  color: #fff;
+  font-weight: 400;
+}
+nav.main-nav ul li a {
+  border: 0;
+  color: #999;
+  display: block;
+  float: left;
+  font-size: 13px;
+  padding: 4px 10px;
+}
+nav.main-nav ul li a.last {
+  border-right: 0;
+}
+nav.main-nav ul li a:hover {
+  color: #fff;
+  font-weight: 400;
+  text-decoration: none;
+}
+.subhead {
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+.jumbotron {
+  background: #220000;
+  background: -moz-linear-gradient(45deg, #220000 0%, #0099ff 100%);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #220000), color-stop(100%, #0099ff));
+  background: -webkit-linear-gradient(45deg, #220000 0%, #0099ff 100%);
+  background: -o-linear-gradient(45deg, #220000 0%, #0099ff 100%);
+  background: -ms-linear-gradient(45deg, #220000 0%, #0099ff 100%);
+  background: linear-gradient(45deg, #220000 0%, #0099ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@blueDark', endColorstr='@blueLight', GradientType=1);
+  color: #fff;
+  padding: 0;
+  position: relative;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.2), inset 0 -3px 7px rgba(0, 0, 0, 0.2);
+}
+.jumbotron h1 {
+  font-weight: normal;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.jumbotron h1 i {
+  margin-right: 10px;
+}
+.jumbotron h1 .icon-rotate-45 {
+  color: white;
+  font-size: 35.75px;
+}
+.jumbotron a {
+  color: #fff;
+  text-transform: none;
+  padding: 5px 10px;
+  text-align: right;
+}
+.jumbotron a i {
+  margin-right: 5px;
+}
+.jumbotron ul {
+  font-size: 13px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  list-style: none;
+}
+.jumbotron li {
+  padding: 5px 0;
+}
+.jumbotron extra-links {
+  margin-top: 40px;
+}
+.list article .item-header img {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+}
+/* ------ custom classes
+--------------------------------- */
+/* ------ div specific styles
+--------------------------------- */
+/* ------ page specific styles
+--------------------------------- */
+body.home .jumbotron .container {
+  background: url('../img/syria.png') no-repeat 580px 0;
+}
+body.home .jumbotron .container p {
+  font-size: 13px;
+  line-height: 18px;
+  margin-bottom: 40px;
+  margin-top: -20px;
+}

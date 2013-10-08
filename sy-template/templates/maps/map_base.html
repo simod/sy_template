@@ -1,0 +1,25 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{% block title_sub %}{% trans "Explore Maps" %}{% endblock %} - {{ block.super }} {% endblock %}
+
+{% block body_class %}maps{% endblock %}
+
+{% block jumbotron %}
+<h1 class="span8"><i class="icon-map-marker"></i> {% trans "Explore Maps" %}</h1>
+<ul class="extra-links span3 pull-right">
+  <li><a href="{% url "new_map" %}"><i class="icon-plus"></i> {% trans "Create a New Map" %}</a></li>
+  <li><a href="{% url "advanced_search" %}"><i class="icon-search"></i> {% trans "Advanced Search" %}</a></li>
+</ul>
+{% endblock %}
+
+{% block body_outer %}
+  <!-- <div class="span12">
+    <ul class="nav nav-tabs" id="subnav-tabs">
+          <li><a href="{% url "maps_browse" %}" class="explore">{% trans 'Explore Maps' %}</a></li>
+    </ul>
+  </div> -->
+  {% block body %}{% endblock body %}
+  {% block sidebar %}{% endblock sidebar %}
+{% endblock %}

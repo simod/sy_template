@@ -1,0 +1,22 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %} {{ block.super }} {% endblock %}
+
+{% block body_class %}documents{% endblock %}
+
+{% block jumbotron %}
+<h1 class="span6"><i class="icon-file-text-alt"></i> {% trans "Explore Documents" %}</h1>
+<ul class="extra-links span3 pull-right">
+  <li><a href="{% url "document_upload" %}" ><i class="icon-long-arrow-up"></i> {% trans "Upload Documents" %}</a></li>
+  <li><a href="{% url "advanced_search" %}"><i class="icon-search"></i> {% trans "Advanced Search" %}</a></li>
+</ul>
+
+
+{% endblock %}
+
+{% block body_outer %}
+    {% block body %}{% endblock body %}
+    {% block sidebar %}{% endblock sidebar %}
+{% endblock body_outer %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load i18n avatar_tags %}
+{% load i18n %}
+
+{% block header %}
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span2">
+          <a href="{% url "home" %}"><span class="nav-logo"></span></a>
+        </div>
+        <div class="span5">
+          <nav class="main-nav">
+            <ul>
+              <li id="nav_home"><a href="{% url "home" %}">{% trans "Home" %}</a></li>
+              <li id="nav_data"><a href="{% url "layer_browse" %}">{% trans "Layers" %}</a></li>
+              <li id="nav_maps"><a href="{% url "maps_browse" %}">{% trans "Maps" %}</a></li>
+              {% if DOCUMENTS_APP %}
+              <li id="nav_documents"><a href="{% url "documents_browse" %}">{% trans "Documents" %}</a></li>
+              {% endif %}
+              <li id="nav_people"><a href="{% url "profile_browse" %}">{% trans "People" %}</a></li>
+              {% block extra-nav %}{% endblock %}
+            </ul>
+          </nav> 
+        </div>
+        <div class="span3">
+          <form class="input-append pull-right" action="{% url "search" %}" method="GET">
+            {# csrf_token #}
+            <input id="search" type="text" name="q"/>
+          </form>
+        </div>
+        <div class="span2">
+          <div class="nav-collapse pull-right">
+            <div class="pull-right">
+              <ul class="nav pull-right account-bar">
+                {% if user.is_authenticated %}
+                <li class="user-avatar">{% avatar user 20 %}</li>
+                <li class="dropdown user">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    {{ user.username }}
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{ user.get_profile.get_absolute_url }}"><i class="icon-user"></i> {% trans "Profile" %}</a></li>
+                    {% if user.is_staff %}
+                    <li><a href="{% url "admin:index" %}"><i class="icon-cog"></i> {% trans "Admin" %}</a></li>
+                    {% endif %}
+                    {% if user.is_superuser %}
+                    <li><a href="{{ GEOSERVER_BASE_URL }}"><i class="icon-globe"></i> {% trans "GeoServer" %}</a></li>
+                    {% endif %}
+                    <li class="divider"></li>
+                    <li><a href="{% url "account_logout" %}"><i class="icon-off"></i> {% trans "Log out" %}</a></li>
+                  </ul>
+                </li> <!-- ./dropdown user -->
+                {% else %}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Sign in" %}</a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <form action="{% url "account_login" %}" method="post" class="sign-in">
+                      {% csrf_token %}
+                        <label for="id_username">{% trans "Username" %}:</label>
+                        <input id="id_username" name="username" type="text" />
+                        <label for="id_password">{% trans "Password" %}:</label>
+                        <input id="id_password" name="password" type="password" />
+                        <label class="checkbox">
+                          <input type="checkbox" />
+                          {% trans "Remember Me" %}
+                        </label>
+                        <button type="submit" class="btn pull-right">{% trans "Sign in" %}</button>
+                      </form>
+                    </li>
+                  </ul>
+                </li>
+                {% if REGISTRATION_OPEN %}
+                <li class="navbar-text">{% trans "or" %}</li>
+                <li><a href="{% url "account_signup" %}">{% trans "Register" %}</a></li>
+                {% endif %}
+                <li class="divider-v">|</li>
+                <li class="actions">
+                  <a href="{% url "help" %}" rel="tooltip" title="help"><i class="icon-question-sign"></i></a>
+                </li>
+              {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
