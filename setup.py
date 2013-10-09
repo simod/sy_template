@@ -21,7 +21,14 @@ setup(
     keywords="geonode django",
     url='https://github.com/simod/sy_template',
     packages=['sy_template'],
-    install_requires=["geonode==2.0b63"],
+    install_requires=[
+        "geonode==2.0b63",
+        "psycopg2",
+        "geonode_formhub>=0.1"
+    ],
+    dependency_links = [
+        "https://github.com/simod/geonode_formhub/archive/no-project.zip#egg=geonode_formhub-0.1"
+    ],
     include_package_data=True,
     zip_safe=False,
 )

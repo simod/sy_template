@@ -21,6 +21,7 @@
 # Django settings for the GeoNode project.
 import os
 import geonode
+import geonode_formhub
 
 #
 # General Django development settings
@@ -32,7 +33,7 @@ SITENAME = 'sy_template'
 # It is used for relative settings elsewhere.
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 GEONODE_ROOT = os.path.abspath(os.path.dirname(geonode.__file__))
-
+GEONODE_FORMHUB_ROOT = os.path.abspath(os.path.dirname(geonode_formhub.__file__))
 
 # Setting debug to true makes Django serve static media and
 # present pretty error pages.
@@ -118,6 +119,7 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, "static"),
     os.path.join(GEONODE_ROOT, "static"),
+    os.path.join(GEONODE_FORMHUB_ROOT, "static"),
 ]
 
 # List of finder classes that know how to find static files in
@@ -212,6 +214,10 @@ INSTALLED_APPS = (
     'geonode.search',
     'geonode.catalogue',
     'geonode.documents',
+
+    # geonode_formhub
+    'geonode_formhub.formhub',
+    'geonode_formhub.features',
 )
 
 LOGGING = {
@@ -577,6 +583,9 @@ AUTH_EXEMPT_URLS = ()
 
 if LOCKDOWN_GEONODE:
     MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + ('geonode.security.middleware.LoginRequiredMiddleware',)
+
+#The formhub media url
+FORMHUB_MEDIA_URL = 'http://192.168.2.1:8000/media/'
 
 # Load more settings from a file called local_settings.py if it exists
 try:
