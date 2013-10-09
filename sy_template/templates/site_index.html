@@ -25,9 +25,9 @@
       <div class="span2"><p>Contributors <span class="count">{{ facets.users }}</span></p></div>
       <div class="span4">
         <p>
-          <i class="icon-twitter-sign"></i>
-          <i class="icon-facebook-sign"></i>
-          <i class="icon-google-plus-sign"></i>
+          <a href="https://twitter.com/share?url=http://{{ request.get_host }}{{ request.get_full_path }}" class="tw"><i class="icon-twitter-sign"></i></a>
+          <a href="http://www.facebook.com/sharer.php?u=http://{{ request.get_host }}{{ request.get_full_path }}" class="fb"><i class="icon-facebook-sign"></i></a>
+          <a href="https://plusone.google.com/_/1/confirm?hl=en&url=http://{{ request.get_host }}{{ request.get_full_path }}" class="gp"><i class="icon-google-plus-sign"></i></a>
         </p>
       </div>
     </div>
