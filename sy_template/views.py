@@ -25,4 +25,4 @@ def search_page(request, template='search/search.html', **kw):
     }
     
     return render_to_response(template, RequestContext(request, {'object_list': results, 
-        'facets': facets}))
+        'facets': facets, 'total': facets['layers']}))
