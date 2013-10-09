@@ -19,3 +19,4 @@ sy_template.egg-info
 *.pyc
 development.db
 sy_template/uploaded
+local_settings.py

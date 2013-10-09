@@ -135,6 +135,7 @@ STATICFILES_FINDERS = (
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, "templates"),
     os.path.join(GEONODE_ROOT, "templates"),
+    os.path.join(GEONODE_FORMHUB_ROOT, "templates"),
 )
 
 # Location of translation files
