@@ -18,3 +18,4 @@ sy_template.egg-info
 .DS_Store
 *.pyc
 development.db
+sy_template/uploaded
