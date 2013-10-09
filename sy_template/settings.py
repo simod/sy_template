@@ -26,7 +26,7 @@ import geonode
 # General Django development settings
 #
 
-SITENAME = '{{ project_name }}'
+SITENAME = 'sy_template'
 
 # Defines the directory that contains the settings file as the PROJECT_ROOT
 # It is used for relative settings elsewhere.
@@ -91,7 +91,7 @@ LANGUAGES = (
     
 )
 
-WSGI_APPLICATION = "{{ project_name }}.wsgi.application"
+WSGI_APPLICATION = "sy_template.wsgi.application"
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -145,7 +145,7 @@ LOCALE_PATHS = (
 SECRET_KEY = '{{ secret_key }}'
 
 # Location of url mappings
-ROOT_URLCONF = '{{ project_name }}.urls'
+ROOT_URLCONF = 'sy_template.urls'
 
 # Site id in the Django sites framework
 SITE_ID = 1

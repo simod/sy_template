@@ -12,3 +12,9 @@ sy-template/static/font/lato_font.css
 sy-template/static/font/lato_light.ttf
 sy-template/static/font/lato_regular.ttf
 sy-template/static/img/logo.png
+geoserver
+downloaded
+sy_template.egg-info
+.DS_Store
+*.pyc
+development.db

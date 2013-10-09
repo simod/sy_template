@@ -2,15 +2,16 @@
 {% load i18n avatar_tags %}
 {% load i18n %}
 
+{% block extra_head %}
+<link href="{{ STATIC_URL }}css/syria.css" rel="stylesheet" />
+{% endblock %}
+
 {% block header %}
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
       <div class="row">
-        <div class="span2">
-          <a href="{% url "home" %}"><span class="nav-logo"></span></a>
-        </div>
-        <div class="span5">
+        <div class="span7">
           <nav class="main-nav">
             <ul>
               <li id="nav_home"><a href="{% url "home" %}">{% trans "Home" %}</a></li>
@@ -90,4 +91,13 @@
     </div>
   </div>
 </div>
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <div class="row">
+      {% block jumbotron %}{% endblock %}
+    </div>
+  </div>
+</header>
+
+{% block social %}{% endblock %}
 {% endblock %}
