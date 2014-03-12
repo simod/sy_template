@@ -22,7 +22,7 @@ setup(
     url='https://github.com/simod/sy_template',
     packages=['sy_template'],
     install_requires=[
-        "geonode==2.0c1",
+        "geonode==2.0",
         "psycopg2",
         "geonode_formhub>=0.1"
     ],
