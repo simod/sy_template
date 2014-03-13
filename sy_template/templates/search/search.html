@@ -35,6 +35,7 @@
           <div id="slide-pane">
             <a href="#" class="toggle toggle-pane"><i class="icon-chevron-left"></i></a>
             {% include "search/_type_filters.html" %}
+            {% include "search/_extent_filter.html" %}
             {% include "search/_general_filters.html" %}
           </div>
         </div>
@@ -46,5 +47,7 @@
 {% endblock %}
 
 {% block extra_script %}
- {% include 'search_scripts.html' %}
+  {% with include_spatial='true' %}
+  {% include 'search_scripts.html' %}
+  {% endwith %}
 {% endblock extra_script %}
