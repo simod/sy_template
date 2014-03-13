@@ -147,3 +147,7 @@ body.home .jumbotron .container p {
   margin-bottom: 40px;
   margin-top: -20px;
 }
+
+.x-panel-tbar #paneltbar {
+    margin-top: 44px;
+}
