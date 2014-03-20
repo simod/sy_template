@@ -40,14 +40,17 @@
 {% block mainbody %}
   <div class="row">
     {% if request.user.is_authenticated %}
-    <div class="span8">
-      <section class="widget list paginate-contents">
-        <h2>{% trans "Latest Layers" %}</h2>
-        <div class="paginate paginate-auto" id="search-content">
-          {% include 'search/search_content.html' %}
-        </div>
-      </section>
-    </div>
+    <section class="span7 well focus-areas">
+      <h2>{% trans "FOCUS AREAS" %}</h2>
+      {% for area in focus_areas %}
+      <span class="pull-left focus-area">
+        {% for key, values in area.items %}
+        <a href="{% url "search" %}?kw={{values.keyword}}"><img class="focus-img" src="{{ STATIC_URL }}img/{{values.img}}"></img></a>
+        <label><a href="{% url "search" %}?kw={{values.keyword}}">{{key}}</a></label>
+        {% endfor %}
+      </span>
+      {% endfor %}
+    </section>
     <aside class="span4">
         <div class="well">
           <section>
@@ -64,19 +67,10 @@
             </p>
           </section>
         </div>
-      <div class="well">
-        <h2>{% trans "Latest Maps" %}</h2>
-        <section class="article-list latest-maps">
-          {% featured_maps as featured_maps %}
-          {% for map in featured_maps %}
-            {% include "maps/_map_list_item.html" %}
-          {% endfor %}
-        </section>
-        {% else %}
-        <img style="width: 1024px;" src="{{ STATIC_URL}}/img/syria_4_geonode.JPG"></img>
-        {% endif %}
-      </div>
     </aside>
+    {% else %}
+    <img style="width: 1024px;" src="{{ STATIC_URL }}/img/syria_4_geonode.JPG"></img>
+    {% endif %}
   </div>
 </div>
 {% endblock %}

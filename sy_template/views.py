@@ -7,6 +7,57 @@ from geonode.documents.models import Document
 from geonode.people.models import Profile
 from geonode.search.views import search_api
 
+focus_areas = [
+    {'Aleppo': {
+            'keyword': 'aleppo',
+            'img': 'aleppo.png'
+        }},
+    {'Homs': {
+            'keyword': 'homs',
+            'img': 'homs.png'
+        }},
+    {'Damascus': {
+            'keyword': 'damascus',
+            'img': 'damascus.png'
+        }},
+    {'Hama': {
+            'keyword': 'hama',
+            'img': 'hama.png'
+        }},
+    {'Al Qusayr': {
+            'keyword': 'al_qusayr',
+            'img': 'al_qusayr.png'
+        }},
+    {'Duma': {
+            'keyword': 'duma',
+            'img': 'duma.png'
+        }},
+    {'Deir Ez-Zor': {
+            'keyword': 'deir_ez_zor',
+            'img': 'deir_ez_zor.png'
+        }},
+    {'Idlib': {
+            'keyword': 'idlib',
+            'img': 'idlib.png'
+        }},
+    {'Az Zabadani': {
+            'keyword': 'az_zabadani',
+            'img': 'az_zabadani.png'
+        }},
+    {'Ar Raqqah': {
+            'keyword': 'ar_raqqah',
+            'img': 'ar_raqqah.png'
+        }},
+    {'A\'zaz': {
+            'keyword': 'azaz',
+            'img': 'azaz.png'
+        }},
+    {'Syria': {
+            'keyword': 'syria',
+            'img': 'focus_syria.png'
+        }},
+]
+
 def index(request, template='index.html'):
     post = request.POST.copy()
     post.update({'type': 'layer'})
@@ -25,4 +76,4 @@ def search_page(request, template='search/search.html', **kw):
     }
     
     return render_to_response(template, RequestContext(request, {'object_list': results, 
-        'facets': facets, 'total': facets['layers']}))
+        'facets': facets, 'total': facets['layers'], 'focus_areas': focus_areas}))

@@ -151,3 +151,24 @@ body.home .jumbotron .container p {
 .x-panel-tbar #paneltbar {
     margin-top: 44px;
 }
+
+.focus-img{
+  width: 150px;
+  height: 150px;
+}
+
+.focus-area{
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.focus-areas{
+  padding-left: 50px;
+}
+
+.focus-areas h2{
+  font-weight: 400;
+  margin: 0;
+}
