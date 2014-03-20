@@ -40,7 +40,7 @@
 {% block mainbody %}
   <div class="row">
     {% if request.user.is_authenticated %}
-    <section class="span7 well focus-areas">
+    <section class="span12 well focus-areas">
       <h2>{% trans "FOCUS AREAS" %}</h2>
       {% for area in focus_areas %}
       <span class="pull-left focus-area">
@@ -51,23 +51,6 @@
       </span>
       {% endfor %}
     </section>
-    <aside class="span4">
-        <div class="well">
-          <section>
-            <h2>{% trans "Contribute" %}</h2>
-            <p class="main-actions">
-            {% blocktrans %}
-              GeoNode enables you to upload, manage, and browse data layers. Search for data that is valuable to you, or upload your own data. 
-            {% endblocktrans %}
-              <a href="{% url "data_upload" %}" class="btn btn-large">{% trans 'Upload Layers' %}</a>
-            {% blocktrans %}
-              GeoNode enables you to compose and share maps. Create a map with our cartography tool, or explore maps shared by others. 
-            {% endblocktrans %}
-              <a href="{% url "new_map" %}" class="btn btn-large">{% trans 'Create a Map' %}</a>
-            </p>
-          </section>
-        </div>
-    </aside>
     {% else %}
     <img style="width: 1024px;" src="{{ STATIC_URL }}/img/syria_4_geonode.JPG"></img>
     {% endif %}

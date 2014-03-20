@@ -52,6 +52,10 @@ focus_areas = [
             'keyword': 'azaz',
             'img': 'azaz.png'
         }},
+    {'Daraa': {
+            'keyword': 'daraa',
+            'img': 'daraa.png'
+        }},
     {'Syria': {
             'keyword': 'syria',
             'img': 'focus_syria.png'
