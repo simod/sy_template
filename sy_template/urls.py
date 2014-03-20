@@ -6,6 +6,7 @@ urlpatterns = patterns('',
 
     # Static pages
     url(r'^$', 'sy_template.views.index', {'template': 'site_index.html'}, name='home'),
+    url(r'^areas_search/?$', 'sy_template.views.search_page', {'template': 'search/areas_search.html'}, name='areas_search'),
  
  ) + \
 urlpatterns + \

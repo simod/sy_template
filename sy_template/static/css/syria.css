@@ -156,6 +156,10 @@ body.home .jumbotron .container p {
   margin: 0;
 }
 
+#embedded_map #paneltbar{
+  margin: 0;
+}
+
 .focus-img{
   width: 150px;
   height: 150px;
