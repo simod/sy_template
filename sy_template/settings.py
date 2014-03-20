@@ -33,37 +33,20 @@ SITENAME = 'sy_template'
 
 # Defines the directory that contains the settings file as the PROJECT_ROOT
 # It is used for relative settings elsewhere.
-LOCAL_ROOT = os.path.abspath(os.path.dirname(__file__))
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(LOCAL_ROOT, 'development.db'),
-    },
-    # vector datastore for uploads
-    #'datastore' : {
-    #    'ENGINE': 'django.contrib.gis.db.backends.postgis',
-    #    'NAME': '',
-    #    'USER' : '',
-    #    'PASSWORD' : '',
-    #    'HOST' : '',
-    #    'PORT' : '',
-    #}
-}
-
-
-# Setting debug to true makes Django serve static media and
-# present pretty error pages.
-DEBUG = TEMPLATE_DEBUG = True
-
-# Set to True to load non-minified versions of (static) client dependencies
-DEBUG_STATIC = False
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+GEONODE_ROOT = os.path.abspath(os.path.dirname(geonode.__file__))
+GEONODE_FORMHUB_ROOT = os.path.abspath(os.path.dirname(geonode_formhub.__file__))
 
 WSGI_APPLICATION = "sy_template.wsgi.application"
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(LOCAL_ROOT, "uploaded")
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "uploaded")
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash if there is a path component (optional in other cases).
+# Examples: "http://media.lawrence.com", "http://example.com/media/"
+MEDIA_URL = "/uploaded/"
 
 # Absolute path to the directory that holds static files like app media.
 # Example: "/home/media/media.lawrence.com/apps/"
@@ -74,23 +57,30 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, "static_root")
 STATIC_URL = "/static/"
 
 # Additional directories which hold static files
-STATICFILES_DIRS.append(
-    os.path.join(LOCAL_ROOT, "static"),
-)
-
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_ROOT, "static"),
+    os.path.join(GEONODE_ROOT, "static"),
+    os.path.join(GEONODE_FORMHUB_ROOT, "static"),
+]
 
 # Note that Django automatically includes the "templates" dir in all the
 # INSTALLED_APPS, se there is no need to add maps/templates or admin/templates
 TEMPLATE_DIRS = (
-    os.path.join(LOCAL_ROOT, "templates"),
-) + TEMPLATE_DIRS
+    os.path.join(PROJECT_ROOT, "templates"),
+    os.path.join(GEONODE_ROOT, "templates"),
+    os.path.join(GEONODE_FORMHUB_ROOT, "templates"),
+)
+
+# Location of translation files
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, "locale"),
+    os.path.join(GEONODE_ROOT, "locale"),
+)
 
 # Location of url mappings
 ROOT_URLCONF = 'sy_template.urls'
 
 INSTALLED_APPS = INSTALLED_APPS + (
-
-    # geonode_formhub
     'geonode_formhub.formhub',
     'geonode_formhub.features',
 )
