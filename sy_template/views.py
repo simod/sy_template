@@ -25,6 +25,10 @@ focus_areas = SortedDict([
             'name': 'Hama',
             'img': 'hama.png'
         }),
+    ('salamiyah', {
+            'name': 'Salamiyah',
+            'img': 'salamiyah.png'
+        }),
     ('al_qusayr', {
             'name': 'Al Qusayr',
             'img': 'al_qusayr.png'
