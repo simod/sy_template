@@ -83,6 +83,7 @@ ROOT_URLCONF = 'sy_template.urls'
 INSTALLED_APPS = INSTALLED_APPS + (
     'geonode_formhub.formhub',
     'geonode_formhub.features',
+    'sy_template.donors',
 )
 
 #The formhub media url

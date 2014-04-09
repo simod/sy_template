@@ -38,21 +38,24 @@
 {% block body_outer %}
 
 {% block mainbody %}
-  <div class="row">
     {% if request.user.is_authenticated %}
-    <section class="span12 well focus-areas">
-      <h2>{% trans "FOCUS AREAS" %}</h2>
-      {% for keyword, values in focus_areas.items %}
-      <span class="pull-left focus-area">
-        <a href="{% url "areas_search" %}?kw={{keyword}}"><img class="focus-img" src="{{ STATIC_URL }}img/{{values.img}}"></img></a>
-        <label><a href="{% url "areas_search" %}?kw={{keyword}}">{{values.name}}</a></label>
+    <section class="span10 well home-focus">
+      <span class="pull-left focus-item">
+        <a href="{% url "focus_areas" %}"><img class="focus-item-img" src="{{ STATIC_URL }}img/focus_syria.png"></img></a>
+        <label><a href="{% url "focus_areas" %}">Damage Assessment</a></label>
       </span>
-      {% endfor %}
+      <span class="pull-left focus-item">
+        <a href="{% url "donors_meeting" %}"><img class="focus-item-img" src="{{ STATIC_URL }}img/devco.jpg"></img></a>
+        <label><a href="{% url "donors_meeting" %}">Core Donors Meeting</a></label>
+      </span>
+      <span class="pull-left focus-item">
+        <a href="{% url "donors_mapping" %}"><img class="focus-item-img" src="{{ STATIC_URL }}img/pie_chart.png"></img></a>
+        <label><a href="{% url "donors_mapping" %}">Core Donors Mapping</a></label>
+      </span>
     </section>
     {% else %}
     <img style="width: 1024px;" src="{{ STATIC_URL }}/img/syria_4_geonode.JPG"></img>
     {% endif %}
-  </div>
 </div>
 {% endblock %}
 {% endblock %}

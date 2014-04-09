@@ -1,6 +1,7 @@
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.utils.datastructures import SortedDict
+from django.contrib.auth.decorators import login_required
 
 from geonode.layers.models import Layer
 from geonode.maps.models import Map
@@ -8,7 +9,9 @@ from geonode.documents.models import Document
 from geonode.people.models import Profile
 from geonode.search.views import search_api
 
-focus_areas = SortedDict([
+from sy_template.donors.models import DonorsMapping
+
+areas = SortedDict([
     ('aleppo', {
             'name': 'Aleppo',
             'img': 'aleppo.png'
@@ -72,9 +75,14 @@ def index(request, template='site_index.html'):
     results, facets, query = search_api(request, format='html')
 
     return render_to_response(template, RequestContext(request, { 
-        'facets': facets, 'focus_areas': focus_areas, }))
+        'facets': facets, }))
 
+@login_required
+def focus_areas(request, template='focus_areas.html'):
+    return render_to_response(template, RequestContext(request, { 
+         'focus_areas': areas, }))
 
+@login_required
 def search_page(request, template='search/search.html', **kw): 
     results, facets, query = search_api(request, format='html', **kw)
     keyword = request.REQUEST.get('kw','')
@@ -85,4 +93,16 @@ def search_page(request, template='search/search.html', **kw):
 
     return render_to_response(template, RequestContext(request, {'object_list': results, 
         'facets': facets, 'total': total, 'keyword': keyword, 
-        'title': focus_areas[keyword]['name'] }))
+        'title': areas[keyword]['name'] }))
+
+
+@login_required
+def search_donors(request, template='donors/search_donors.html', **kw):
+    results, facets, query = search_api(request, format='html', **kw)
+    keyword = request.REQUEST.get('kw','')
+    total = 0
+    for val in facets.values(): total+=val
+    total -= facets['raster'] + facets['vector']
+    return render_to_response(template, RequestContext(request, {'object_list': results, 
+        'facets': facets, 'total': total, 'keyword': keyword, 
+        'title': DonorsMapping.objects.filter(keyword=keyword)[0].name }))
